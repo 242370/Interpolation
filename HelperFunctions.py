@@ -20,7 +20,7 @@ def getValue(i, x):
     if i == 1:  # 0.1x^3 -2x^2 + x + 13
         return horner(wn, x)
     elif i == 2:  # 3sin(x)
-        return 3 * m.sin(x)
+        return 3 * m.cos(x)
     elif i == 3:  # |x|
         return abs(x)
     elif i == 4:  # złożenie nr 1: sin(0.1x^3 -2x^2 + x + 13)
