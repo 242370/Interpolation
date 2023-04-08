@@ -16,16 +16,16 @@ def horner(wielomian, x):
 
 # Wybór funkcji: 'i' oznacza wybraną funkcję, 'x' wartość argumentu
 def getValue(i, x):
-    wn = [0.1, -2.0, 1.0, 13.0]  # na sztywno wpisane, by użyć w hornerze
-    if i == 1:  # 0.1x^3 -2x^2 + x + 13
-        return horner(wn, x)
-    elif i == 2:  # 3sin(x)
-        return 3 * m.cos(x)
-    elif i == 3:  # |x|
+    if i == 1:  # x-1
+        return x-1
+    elif i == 2:  # |x|
         return abs(x)
-    elif i == 4:  # złożenie nr 1: sin(0.1x^3 -2x^2 + x + 13)
-        return m.sin(horner(wn, x))
-    elif i == 5:  # złożenie nr 2: 2^(0.1x^3 -2x^2 + x + 13) - 13
-        return 2 ** (horner(wn, x)) - 13
+    elif i == 3:  # 0.6x^3-4x^2+3x+1
+        wn = [0.6, -4.0, +3.0, 1.0]
+        return horner(wn, x)
+    elif i == 4:  # cos(x)
+        return m.cos(x)
+    elif i == 5:  # |x|*cos(x)
+        return m.cos(x) * abs(x)
     elif i == 6:  # 1.3^(13 * cos(x)) - 1
         return 1.3 ** (13 * m.cos(x)) - 1
