@@ -7,19 +7,19 @@ class Interpolation:
 
     def __init__(self, function):
         # krotka z human-readable nazwami funkcji
-        self.functions = ('x-1', '|x|', '3x\u00b3-2x\u00b2-13x+4', 'cos(x)',
+        self.functions = ('x-1', '|x|', '2x\u00b3-x\u00b2-3x', 'cos(x)',
                           '|x|*cos(x)', '1.3^(13cos(x) - 1')
         self.data = None
         self.function = function
 
     def menufunctions(self):
         print("Choose function:")
-        print("1.Liniowa: " + self.functions[0] + "                           #(suggestion: (-10,10),  2/10)")                    # x-1
-        print("2.Absolute value: " + self.functions[1]+ "                    #(suggestion: (-10,10), 9/10)")             # |x|
-        print("3.Wielomian: " + self.functions[2]+ "               #(suggestion: -2,6,6)")                  # 3x^3-2x^2-13x+4
-        print("4.Trygonometryczna: " + self.functions[3]+ "               #(suggestion: (-10,10) 7/8)")           # cos(x)
-        print("5.Złożenie tryg i absolute: " + self.functions[4]+ "   #(suggestion: (-10,10) 6/9)")   # |x|*cos(x)
-        print("6.Złożenie tryg i wykładniczej " + self.functions[5] + "     #(suggestion: (-10,10) 6/7)") # 1.3^(13cos(x) - 1
+        print("1.Linear: " + self.functions[0] + "                                                       #(suggestion: (-10,10) 2/10)")                    # x-1
+        print("2.Absolute value: " + self.functions[1]+ "                                               #(suggestion: (-10,10) 9/10)")             # |x|
+        print("3.Polynomial: " + self.functions[2]+ "                                             #(suggestion: (-2,2) 3)")                  # 2x^3-x^2-3x
+        print("4.Trigonometric: " + self.functions[3]+ "                                             #(suggestion: (-10,10) 7/8)")           # cos(x)
+        print("5.Comparison of trigonometric and absolute: " + self.functions[4]+ "              #(suggestion: (-10,10) 6/9)")   # |x|*cos(x)
+        print("6.Comparison of trigonometric and exponential " + self.functions[5] + "     #(suggestion: (-10,10) 6/7)") # 1.3^(13cos(x) - 1
 
     # Wyznaczanie macierzy współczynników dla wartości z pliku
     def from_file(self, file):

@@ -20,8 +20,8 @@ def getValue(i, x):
         return x-1
     elif i == 2:  # |x|
         return abs(x)
-    elif i == 3:  # 0.6x^3-4x^2+3x+1
-        wn = [0.6, -4.0, +3.0, 1.0]
+    elif i == 3:  # 2x^3-x^2-3x
+        wn = [2.0, -1.0, -3.0, 0.0]
         return horner(wn, x)
     elif i == 4:  # cos(x)
         return m.cos(x)
