@@ -6,8 +6,8 @@ from HelperFunctions import getValue
 class Interpolation:
 
     def __init__(self, function):
-        # krotka z human-readable nazwami funkcji
-        self.functions = ('x-1', '|x|', '2x\u00b3-x\u00b2-3x', 'cos(x)',
+        # krotka z human-readable nazwami funkcji 0.5x^3-2x^2+1
+        self.functions = ('x-1', '|x|', '0.5x\u00b3-2x\u00b2+1', 'cos(x)',
                           '|x|*cos(x)', '1.3^(13cos(x) - 1')
         self.data = None
         self.function = function
@@ -16,7 +16,7 @@ class Interpolation:
         print("Choose function:")
         print("1.Linear: " + self.functions[0] + "                                                       #(suggestion: (-10,10) 2/10)")                    # x-1
         print("2.Absolute value: " + self.functions[1]+ "                                               #(suggestion: (-10,10) 9/10)")             # |x|
-        print("3.Polynomial: " + self.functions[2]+ "                                             #(suggestion: (-2,2) 3, tu albo coś nie działa albo inny wielomian, dopytać)")                  # 2x^3-x^2-3x
+        print("3.Polynomial: " + self.functions[2]+ "                                           #(suggestion: (-2,4) 3/4)")                  # 2x^3-x^2-3x
         print("4.Trigonometric: " + self.functions[3]+ "                                             #(suggestion: (-10,10) 7/8)")           # cos(x)
         print("5.Comparison of trigonometric and absolute: " + self.functions[4]+ "              #(suggestion: (-10,10) 6/9)")   # |x|*cos(x)
         print("6.Comparison of trigonometric and exponential " + self.functions[5] + "     #(suggestion: (-10,10) 6/7)") # 1.3^(13cos(x) - 1
