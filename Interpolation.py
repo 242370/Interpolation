@@ -19,7 +19,7 @@ class Interpolation:
         print("3.Polynomial: " + self.functions[2]+ "                                           #(suggestion: (-2,4) 3/4)")                  # 2x^3-x^2-3x
         print("4.Trigonometric: " + self.functions[3]+ "                                             #(suggestion: (-10,10) 7/8)")           # cos(x)
         print("5.Comparison of trigonometric and absolute: " + self.functions[4]+ "              #(suggestion: (-10,10) 6/9)")   # |x|*cos(x)
-        print("6.Comparison of trigonometric and exponential " + self.functions[5] + "     #(suggestion: (-10,10) 6/7)") # 1.3^(13cos(x) - 1
+        print("6.Comparison of trigonometric and exponential " + self.functions[5] + ")    #(suggestion: (-10,10) 6/7)") # 1.3^(13cos(x) - 1
 
     # Wyznaczanie macierzy współczynników dla wartości z pliku
     def from_file(self, file):
@@ -72,7 +72,7 @@ class Interpolation:
         #     print("Too much power, the reactor won't last")
         #     return
         n = len(args)
-        cols = len(values)  # liczba kolumn macierzy, power - najwyższy stopień wielomianu
+        cols = len(values)  # liczba kolumn macierzy
         coefficients = np.zeros([n, cols])  # wyzerowana lista na współczynniki, macierz kształtu 'n' x cols
         coefficients[:, 0] = values  # pierwsza kolumna to wartości węzłów, zgodnie ze wzorem dla 1-szego rzędu
         for col in range(1, cols):  # pierwsza kolumna jest już wypełniona
@@ -100,9 +100,13 @@ class Interpolation:
         values = self.calculate_values(args)
         min_arg = min(args)
         max_arg = max(args)
-        x_values = np.linspace(min_arg, max_arg, 100)
+        if(min_arg == max_arg):
+            x_values = np.linspace(-10, 10, 100)
+        else:
+            x_values = np.linspace(min_arg, max_arg, 100)
         plot.scatter(args, values, color='black')
         plot.plot(x_values, self.calculate_values(x_values), color='red', scalex='True')
+        x_values = np.linspace(min_arg, max_arg, 100)
         y_values = np.zeros(100)  # wartości dla wyliczonego wielomianu
         for i in range(0, 100):
             y_values[i] = self.interpolation_polynomial(self.from_function(args, values), x_values[i])

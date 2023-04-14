@@ -8,7 +8,7 @@ if __name__ == '__main__':
     print("If you want to load nodes from files, input 'f'. If not, press 'ENTER'")
     cfile = input()
     if(cfile == 'f'):
-        int.from_file_plot('Parameters.txt')
+        inter.from_file_plot('Parameters.txt')
         quit()
 
     inter.menufunctions()
